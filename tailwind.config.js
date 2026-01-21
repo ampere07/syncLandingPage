@@ -13,6 +13,9 @@ export default {
           light: '#a855f7',
         },
       },
+      fontFamily: {
+        sans: ['Montserrat', 'sans-serif'],
+      },
     },
   },
   plugins: [],

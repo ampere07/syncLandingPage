@@ -2,12 +2,71 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/png" href="/src/assets/SYNC1.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>my-react-app</title>
+    <title>Sync</title>
+    <style>
+      #splash-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        transition: opacity 0.5s ease-out;
+      }
+
+      #splash-screen.fade-out {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .splash-logo {
+        width: 80px;
+        height: auto;
+        max-width: 40vw;
+        animation: spinWithPause 2s infinite;
+      }
+
+      @keyframes spinWithPause {
+        0% {
+          transform: rotate(0deg);
+        }
+        50% {
+          transform: rotate(360deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .splash-logo {
+          width: 60px;
+        }
+      }
+    </style>
   </head>
   <body>
+    <div id="splash-screen">
+      <img src="/src/assets/SYNCSAMPLE.png" alt="Sync Logo" class="splash-logo" />
+    </div>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <script>
+      window.addEventListener('load', () => {
+        const splashScreen = document.getElementById('splash-screen');
+        setTimeout(() => {
+          splashScreen.classList.add('fade-out');
+          setTimeout(() => {
+            splashScreen.style.display = 'none';
+          }, 500);
+        }, 1000);
+      });
+    </script>
   </body>
 </html>
