@@ -1,0 +1,141 @@
+@keyframes orbit-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse-ring {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.orbit-container {
+  position: relative;
+  width: 500px;
+  height: 500px;
+}
+
+.orbit-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 180px;
+  height: 180px;
+  background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  box-shadow: 0 10px 40px rgba(124, 58, 237, 0.3);
+}
+
+.orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(124, 58, 237, 0.2);
+  border-radius: 50%;
+  animation: pulse-ring 3s ease-in-out infinite;
+}
+
+.orbit-1 {
+  width: 280px;
+  height: 280px;
+  animation-delay: 0s;
+}
+
+.orbit-2 {
+  width: 380px;
+  height: 380px;
+  animation-delay: 1s;
+}
+
+.orbit-3 {
+  width: 480px;
+  height: 480px;
+  animation-delay: 2s;
+}
+
+.orbit-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  animation: orbit-spin 20s linear infinite;
+}
+
+.orbit-item > div {
+  position: absolute;
+  transform: rotate(var(--orbit-angle)) translateX(var(--orbit-radius));
+}
+
+.orbit-item > div > .orbit-icon-wrapper {
+  transform: translate(-50%, -50%) rotate(calc(-1 * var(--orbit-angle)));
+}
+
+.orbit-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .orbit-container {
+    width: 350px;
+    height: 350px;
+  }
+
+  .orbit-center {
+    width: 140px;
+    height: 140px;
+  }
+
+  .orbit-1 {
+    width: 200px;
+    height: 200px;
+  }
+
+  .orbit-2 {
+    width: 270px;
+    height: 270px;
+  }
+
+  .orbit-3 {
+    width: 340px;
+    height: 340px;
+  }
+
+  .orbit-item-layer-1 {
+    --orbit-radius: 100px !important;
+  }
+
+  .orbit-item-layer-2 {
+    --orbit-radius: 135px !important;
+  }
+
+  .orbit-item-layer-3 {
+    --orbit-radius: 170px !important;
+  }
+
+  .orbit-icon-wrapper {
+    width: 40px;
+    height: 40px;
+  }
+}
