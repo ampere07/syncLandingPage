@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Zap, Shield, Link2, BarChart3, HeadphonesIcon, TrendingUp } from 'lucide-react';
 import image1 from '../assets/11.png';
 import image2 from '../assets/demo.png';
@@ -7,6 +7,9 @@ import './Home.css';
 
 const Home = () => {
   const [currentIndex, setCurrentIndex] = useState(1);
+  const [mouseOffset, setMouseOffset] = useState({ x: null, y: null });
+  const [ringRotation, setRingRotation] = useState(0);
+  const lastMousePos = useRef({ x: null, y: null });
   const images = [image1, image2, image3];
 
   const features = [
@@ -18,14 +21,35 @@ const Home = () => {
     { title: 'Scalable Solutions', description: 'Grow without limits as your business expands', icon: TrendingUp }
   ];
 
-  const starSizes = ['small', 'small', 'medium', 'small', 'large', 'medium', 'small', 'xlarge', 'medium', 'small', 'large', 'small', 'medium', 'small', 'xlarge', 'medium', 'small', 'large', 'medium', 'small', 'small', 'medium', 'large', 'small', 'medium', 'xlarge', 'small', 'medium', 'large', 'small'];
-
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % images.length);
     }, 3000);
     return () => clearInterval(interval);
   }, []);
+
+  const handleMouseMove = (event) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    setMouseOffset({ x, y });
+
+    const last = lastMousePos.current;
+    if (last.x !== null && last.y !== null) {
+      const deltaX = x - last.x;
+      const deltaY = y - last.y;
+      const magnitude = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+      if (magnitude > 0.5) {
+        setRingRotation((prev) => prev - Math.min(18, magnitude * 1.2));
+      }
+    }
+    lastMousePos.current = { x, y };
+  };
+
+  const handleMouseLeave = () => {
+    setMouseOffset({ x: null, y: null });
+    lastMousePos.current = { x: null, y: null };
+  };
 
   const getImageStyle = (index) => {
     const position = (index - currentIndex + images.length) % images.length;
@@ -53,12 +77,21 @@ const Home = () => {
 
   return (
     <>
-      <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 px-4 sm:px-6 lg:px-8 py-20 pt-24 md:pt-20 relative overflow-hidden">
-        {/* Stars Background */}
-        <div className="stars-container">
-          {starSizes.map((size, i) => (
-            <div key={i} className={`diamond-star ${size}`}></div>
-          ))}
+      <section
+        className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 px-4 sm:px-6 lg:px-8 py-20 pt-24 md:pt-20 relative overflow-hidden"
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+      >
+        <div
+          className="hover-dots"
+          style={{
+            top: mouseOffset.y !== null ? `${mouseOffset.y}px` : '50%',
+            left: mouseOffset.x !== null ? `${mouseOffset.x}px` : '50%',
+            opacity: mouseOffset.x !== null && mouseOffset.y !== null ? 1 : 0.15,
+            transform: `translate(-50%, -50%) rotate(${ringRotation}deg)`
+          }}
+        >
+          <div className="hover-dots-inner" />
         </div>
 
         <div className="max-w-7xl mx-auto w-full relative z-10">

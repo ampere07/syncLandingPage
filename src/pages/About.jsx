@@ -13,9 +13,9 @@ const About = () => {
         ))}
       </div>
 
-      <div className="max-w-7xl mx-auto text-center w-full relative z-10">
+      <div className="max-w-7xl mx-auto text-center w-full relative z-10 px-4 sm:px-6">
         {/* Orbital Animation */}
-        <div className="relative w-full max-w-xl mx-auto mb-16 h-[400px] md:h-[500px] overflow-visible">
+        <div className="relative w-full max-w-xl mx-auto mb-12 h-[320px] sm:h-[380px] md:h-[500px] overflow-visible">
           {/* Center Circle */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
             <div className="text-center bg-gradient-to-br from-primary to-primary-dark rounded-full w-32 h-32 md:w-40 md:h-40 flex flex-col items-center justify-center shadow-2xl border-4 border-white">
@@ -70,25 +70,13 @@ const About = () => {
         <div className="inline-block px-4 py-2 bg-primary/10 rounded-full mb-6">
           <span className="text-primary font-semibold text-sm">WHO WE ARE</span>
         </div>
-        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">About Our Company</h2>
-        <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-16 leading-relaxed px-4">
-          We are dedicated to delivering exceptional solutions that drive success. 
-          Our team combines expertise with innovation to create products that exceed expectations.
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-gray-900">About Our Billing Company</h2>
+        <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-6 leading-relaxed">
+          We build billing systems that simplify payments, automate invoices, and manage customer accounts efficiently. Our company delivers reliable, scalable solutions designed for modern businesses that need smart billing tools and clear reporting.
         </p>
-        <div className="grid grid-cols-3 gap-4 md:gap-8 mt-12 px-4 max-w-4xl mx-auto">
-          <div className="p-4 md:p-8 bg-white rounded-xl shadow-lg border border-gray-200">
-            <h3 className="text-3xl md:text-5xl font-bold text-primary mb-2 md:mb-3">10+</h3>
-            <p className="text-xs md:text-base text-gray-600 font-medium">Years Experience</p>
-          </div>
-          <div className="p-4 md:p-8 bg-white rounded-xl shadow-lg border border-gray-200">
-            <h3 className="text-3xl md:text-5xl font-bold text-primary mb-2 md:mb-3">500+</h3>
-            <p className="text-xs md:text-base text-gray-600 font-medium">Clients Served</p>
-          </div>
-          <div className="p-4 md:p-8 bg-white rounded-xl shadow-lg border border-gray-200">
-            <h3 className="text-3xl md:text-5xl font-bold text-primary mb-2 md:mb-3">98%</h3>
-            <p className="text-xs md:text-base text-gray-600 font-medium">Satisfaction Rate</p>
-          </div>
-        </div>
+        <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-12 leading-relaxed">
+          From automated reconciliation and subscription management to robust analytics and customer self-service, we help businesses reduce manual work and improve cash flow. Our platform is built for agility, security, and seamless integration across sales channels.
+        </p>
       </div>
     </section>
   );
