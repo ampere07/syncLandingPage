@@ -6,7 +6,7 @@ const Pricing = () => {
   const plans = [
     {
       name: 'Standard',
-      price: '₱1',
+      price: '₱@',
       billing: '/customer',
       features: ['Standard billing system only']
     },
@@ -42,17 +42,16 @@ const Pricing = () => {
         <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-12">
           Select the perfect plan for your business needs
         </p>
-        
+
         {/* Desktop Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
           {plans.map((plan, index) => (
-            <div 
-              key={index} 
-              className={`relative p-6 md:p-8 bg-white rounded-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl flex flex-col border-2 ${
-                plan.popular 
-                  ? 'border-primary shadow-xl scale-105' 
+            <div
+              key={index}
+              className={`relative p-6 md:p-8 bg-white rounded-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl flex flex-col border-2 ${plan.popular
+                  ? 'border-primary shadow-xl scale-105'
                   : 'border-gray-200 shadow-lg'
-              }`}
+                }`}
             >
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-primary to-primary-dark text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
@@ -78,11 +77,10 @@ const Pricing = () => {
                   ))}
                 </ul>
               </div>
-              <button className={`w-full py-3 md:py-4 font-bold rounded-lg transition-all duration-300 mt-auto ${
-                plan.popular
+              <button className={`w-full py-3 md:py-4 font-bold rounded-lg transition-all duration-300 mt-auto ${plan.popular
                   ? 'bg-primary text-white hover:bg-primary-dark shadow-lg'
                   : 'bg-gray-900 text-white hover:bg-gray-800'
-              }`}>
+                }`}>
                 Get Started
               </button>
             </div>
