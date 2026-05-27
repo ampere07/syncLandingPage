@@ -6,7 +6,7 @@ const Pricing = () => {
   const plans = [
     {
       name: 'Standard',
-      price: '₱@',
+      price: '₱3',
       billing: '/customer',
       features: ['Standard billing system only']
     },
@@ -49,8 +49,8 @@ const Pricing = () => {
             <div
               key={index}
               className={`relative p-6 md:p-8 bg-white rounded-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl flex flex-col border-2 ${plan.popular
-                  ? 'border-primary shadow-xl scale-105'
-                  : 'border-gray-200 shadow-lg'
+                ? 'border-primary shadow-xl scale-105'
+                : 'border-gray-200 shadow-lg'
                 }`}
             >
               {plan.popular && (
@@ -78,8 +78,8 @@ const Pricing = () => {
                 </ul>
               </div>
               <button className={`w-full py-3 md:py-4 font-bold rounded-lg transition-all duration-300 mt-auto ${plan.popular
-                  ? 'bg-primary text-white hover:bg-primary-dark shadow-lg'
-                  : 'bg-gray-900 text-white hover:bg-gray-800'
+                ? 'bg-primary text-white hover:bg-primary-dark shadow-lg'
+                : 'bg-gray-900 text-white hover:bg-gray-800'
                 }`}>
                 Get Started
               </button>
