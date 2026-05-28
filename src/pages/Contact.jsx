@@ -36,7 +36,7 @@ const Contact = () => {
               <Mail className="w-6 h-6 md:w-8 md:h-8 text-primary" />
             </div>
             <h3 className="text-sm md:text-xl font-bold text-gray-900 mb-1 md:mb-2">Email Us</h3>
-            <p className="text-xs md:text-base text-gray-600 break-words">contact@sync.com</p>
+            <p className="text-xs md:text-base text-gray-600 break-words">hello@syncnow.ph</p>
           </div>
 
           <div className="bg-white p-4 md:p-8 rounded-xl shadow-lg border border-gray-200 text-center">
@@ -44,7 +44,7 @@ const Contact = () => {
               <Phone className="w-6 h-6 md:w-8 md:h-8 text-primary" />
             </div>
             <h3 className="text-sm md:text-xl font-bold text-gray-900 mb-1 md:mb-2">Call Us</h3>
-            <p className="text-xs md:text-base text-gray-600">+1 (555) 123-4567</p>
+            <p className="text-xs md:text-base text-gray-600">+63 992 431 3554</p>
           </div>
 
           <div className="bg-white p-4 md:p-8 rounded-xl shadow-lg border border-gray-200 text-center">
@@ -52,7 +52,7 @@ const Contact = () => {
               <MapPin className="w-6 h-6 md:w-8 md:h-8 text-primary" />
             </div>
             <h3 className="text-sm md:text-xl font-bold text-gray-900 mb-1 md:mb-2">Visit Us</h3>
-            <p className="text-xs md:text-base text-gray-600">123 Business St, City</p>
+            <p className="text-xs md:text-base text-gray-600">Pasig City</p>
           </div>
         </div>
 
@@ -95,7 +95,7 @@ const Contact = () => {
               required
               className="w-full p-4 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-primary transition-colors resize-none"
             />
-            <button 
+            <button
               type="submit"
               className="w-full md:w-auto px-12 py-4 bg-primary text-white rounded-lg font-bold hover:bg-primary-dark shadow-lg hover:shadow-xl transition-all duration-300"
             >

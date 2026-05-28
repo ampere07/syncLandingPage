@@ -52,9 +52,9 @@ const Footer = ({ setCurrentPage }) => {
           <div>
             <h4 className="text-base md:text-lg font-semibold mb-3 md:mb-4">Contact Info</h4>
             <ul className="space-y-1 md:space-y-2 text-gray-300 text-xs md:text-sm">
-              <li>contact@sync.com</li>
-              <li>+1 (555) 123-4567</li>
-              <li>123 Business St, City</li>
+              <li>hello@syncnow.ph</li>
+              <li>+63 992 431 3554</li>
+              <li>Pasig City</li>
             </ul>
           </div>
         </div>

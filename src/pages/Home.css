@@ -1,86 +1,32 @@
-.hover-dots {
+/* Home page styles */
+
+.click-ripple {
   position: absolute;
-  top: 50%;
-  left: 50%;
   transform: translate(-50%, -50%);
-  transform-origin: center center;
-  width: 260px;
-  height: 260px;
+  width: 0px;
+  height: 0px;
   border-radius: 50%;
+  border: 2px solid rgba(124, 58, 237, 0.5); /* Brand purple stroke */
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.12) 0%, transparent 70%);
   pointer-events: none;
-  filter: blur(8px);
-  transition: top 0.08s ease-out, left 0.08s ease-out, opacity 0.25s ease-out;
-  background-image:
-    radial-gradient(circle at 50% 8%, rgba(124, 58, 237, 0.75) 0%, rgba(124, 58, 237, 0.75) 6%, transparent 8%),
-    radial-gradient(circle at 12% 30%, rgba(99, 102, 241, 0.65) 0%, rgba(99, 102, 241, 0.65) 5%, transparent 7%),
-    radial-gradient(circle at 88% 30%, rgba(168, 85, 247, 0.7) 0%, rgba(168, 85, 247, 0.7) 5%, transparent 7%),
-    radial-gradient(circle at 22% 72%, rgba(147, 51, 234, 0.6) 0%, rgba(147, 51, 234, 0.6) 5%, transparent 7%),
-    radial-gradient(circle at 78% 72%, rgba(167, 139, 250, 0.5) 0%, rgba(167, 139, 250, 0.5) 5%, transparent 7%),
-    radial-gradient(circle at 50% 90%, rgba(210, 180, 255, 0.4) 0%, rgba(210, 180, 255, 0.4) 6%, transparent 8%);
-  animation: pulse-dots 1.4s ease-in-out infinite;
+  animation: click-ripple-expand 0.8s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+  z-index: 1;
 }
 
-.hover-dots::before {
-  content: '';
-  position: absolute;
-  inset: 6%;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05);
-  animation: pulse-glow 1.4s ease-in-out infinite;
-}
-
-.hover-dots::after {
-  content: '';
-  position: absolute;
-  inset: 18%;
-  border-radius: 50%;
-  background: radial-gradient(circle, transparent 65%, rgba(124, 58, 237, 0.16) 70%, transparent 75%);
-  transform: rotate(0deg);
-  animation: spin-ring 10s linear infinite;
-}
-
-@keyframes pulse-dots {
-  0%, 100% {
-    opacity: 0.85;
+@keyframes click-ripple-expand {
+  0% {
+    width: 0px;
+    height: 0px;
+    opacity: 1;
+    border-width: 3px;
   }
   50% {
-    opacity: 1;
-  }
-}
-
-@keyframes pulse-glow {
-  0%, 100% {
-    transform: scale(0.95);
     opacity: 0.5;
   }
-  50% {
-    transform: scale(1.05);
-    opacity: 0.85;
-  }
-}
-
-@keyframes spin-ring {
-  0% {
-    transform: rotate(0deg);
-  }
   100% {
-    transform: rotate(360deg);
-  }
-}
-
-@media (max-width: 768px) {
-  .hover-dots {
-    width: 180px;
-    height: 180px;
-    filter: blur(6px);
-  }
-}
-
-@media (max-width: 768px) {
-  .hover-orb {
-    width: 300px;
-    height: 300px;
-    filter: blur(18px);
+    width: 350px;
+    height: 350px;
+    opacity: 0;
+    border-width: 1px;
   }
 }
